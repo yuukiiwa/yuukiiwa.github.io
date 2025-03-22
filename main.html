@@ -1,0 +1,403 @@
+<!DOCTYPE html><html lang="en"> 
+  <head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width">
+    <title>Yuk Kei Wan</title>
+    <link rel="stylesheet" href="misc.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['gantt']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Task ID');
+        data.addColumn('string', 'Task Name');
+        data.addColumn('string', 'Resource');
+        data.addColumn('date', 'Start Date');
+        data.addColumn('date', 'End Date');
+        data.addColumn('number', 'Duration');
+        data.addColumn('number', 'Percent Complete');
+        data.addColumn('string', 'Dependencies');
+
+        data.addRows([
+          ['skill1', 'Drosophila handling (injection, crossing)', 'wet-lab',
+          new Date(2014, 09, 20), new Date(2016, 12, 20), null, 100, null],
+          ['skill2', 'Protein purification (affinity chromatography)', 'wet-lab',
+          new Date(2014, 09, 20), new Date(2017, 12, 20), null, 100, null],
+          ['skill3', 'Molecular Cloning and PCR', 'wet-lab',
+          new Date(2014, 09, 20), new Date(2019, 09, 20), null, 100, null],
+          ['skill4', 'Western blots/Protein Gels', 'wet-lab',
+          new Date(2015, 09, 20), new Date(2019, 09, 20), null, 100, null],
+          ['skill5', 'Cell culture (2D and organoids)', 'wet-lab',
+          new Date(2015, 09, 20), new Date(2019, 09, 20), null, 100, null],
+          ['skill6', 'Image analysis with FIJI (Fuji is just ImageJ)', 'dry-lab',
+          new Date(2018, 01, 14), new Date(2018, 05, 14), null, 100, null],
+          ['skill7', 'Java', 'dry-lab',
+          new Date(2018, 01, 14), new Date(2019, 05, 14), null, 100, null],
+          ['skill8', 'HTML and CSS', 'dry-lab',
+          new Date(2018, 01, 14), new Date(2025, 03, 21), null, 100, null],
+          ['skill9', 'HPC', 'dry-lab',
+          new Date(2016, 08, 30), new Date(2025, 03, 21), null, 100, null],
+          ['skill10', 'R', 'dry-lab',
+          new Date(2016, 08, 30), new Date(2025, 03, 21), null, 100, null],
+          ['skill11', 'Python', 'dry-lab',
+          new Date(2016, 08, 30), new Date(2025, 03, 21), null, 100, null],
+          ['skill12', 'Machine learning', 'dry-lab',
+          new Date(2019, 01, 10), new Date(2025, 03, 21), null, 100, null],
+          ['skill13', 'Nextflow (nf-core)', 'dry-lab',
+          new Date(2019, 04, 10), new Date(2025, 03, 21), null, 100, null],
+          ['skill14', 'Cloud computing (AWS)', 'dry-lab',
+          new Date(2021, 04, 10), new Date(2025, 03, 21), null, 100, null],
+          ['skill15', 'Deep learning (PyTorch)', 'dry-lab',
+          new Date(2022, 05, 10), new Date(2025, 03, 21), null, 100, null]
+        ]);
+
+        var options = {
+          height: 500,
+          gantt: {
+            trackHeight: 30,
+          }
+        };
+
+        var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <script type="text/javascript">
+      google.charts.load('current', {
+        'packages':['geochart'],
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['Country', 'Book'],
+          ['Turkey', 'The Museum of Innocence by Orhan Pamuk'],
+          ['South Korea', 'Panchinko by Min Jin Lee'],
+          ['Philippines', 'Dusk: a Novel by F. Sionil José'],
+          ['France', 'Journey to the Centre of the Earth by Jules Verne'],
+          ['Netherlands', 'The Discovery of Heaven by Harry Mulisch'],
+          ['Switzerland', "Voting Day by Clare O'Dea (Irish moved to Switzerland)"],
+          ['Indonesia', 'The Sea Speaks His Name by Leila S.Chudori'],
+          ['Austria', 'The Tobacconist by Robert Seethaler'],
+          ['Bosnia and Herzegovina', 'Omer Pasha Latas by Ivo Andrić'],
+          ['Sweden', 'The Family Clause by Jonas Hassen Khemiri'],
+          ['Guyana', 'The Murderer by Roy Heath'],
+          ['Finland', 'The Rabbit Factor by Antti Tuomainen'],
+          ['Trinidad and Tobago', 'No Pain Like This Body by Harold Sonny Ladoo'],
+          ['Peru', 'The Time of the Hero by Mario Vargas Llosa'],
+          ['Colombia', 'One Hundred Years of Solitude by Gabriel Garcia Marquez'],
+          ['Afghanistan', 'The Kite Runner by Khaled Hosseini'],
+          ['Ghana', 'Homegoing by Yaa Gyasi'],
+          ['Vietnam', 'The Mountains Sing by Nguyen Phan Qué Mai'],
+          ['Italy', 'Family Lexicon by Natalia Ginzburg'],
+          ['Chile', 'The House of the Spirits by Isabel Allende'],
+          ['Pakistan', 'The Runaways by Fatima Bhutto'],
+          ['Thailand', 'Welcome Me to the Kingdom by Mai Nardone'],
+          ['Israel', 'The Netanyahus by Joshua Cohen (American)'],
+          ['Australia', 'Looking for Alibrandi by Melina Marchetta'],
+          ['Kenya', 'The House of Rust by Khadija Abdalla Bajaber'],
+          ['Kenya', 'The House of Rust by Khadija Abdalla Bajaber'],
+          ['Norway', 'Scenes From a Childhood by Jon Fosse'],
+          ['Lithuania', 'Breathing into Marble by Laura Sintija Cerniauskaite'],
+        ]);
+
+        var options = {};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body> 
+    <html lang="en"> 
+    <head>
+      <meta charset="utf-8"><meta name="viewport" content="width=device-width">
+      <title>Yuk Kei Wan</title>
+    </head>
+    <body class="bg-background text-foreground">
+      <div id="navbar-trigger" class="fixed top-0 left-0 w-full h-16 z-40" data-astro-cid-5blmo7yk></div>
+      <nav class="fixed top-0 left-1/2 -translate-x-1/2 z-50 w-fit mt-4 transition-all duration-300 group md:opacity-40 opacity-100" data-astro-cid-5blmo7yk> 
+        <div class="backdrop-blur-md rounded-3xl bg-white/5 dark:bg-black/5 relative transition-all duration-300
+              before:absolute before:inset-0 before:rounded-3xl before:p-[1px] before:bg-gradient-to-r 
+              before:from-white/10 before:to-white/20 dark:before:from-white/5 dark:before:to-white/10
+              before:opacity-100 group-hover:before:opacity-0
+              hover:before:from-primary/90 hover:before:to-primary/80
+              before:transition-all before:duration-300
+              border border-white/10 dark:border-white/5" data-astro-cid-5blmo7yk>
+        <div class="relative rounded-3xl bg-transparent transition-colors duration-300
+                group-hover:bg-white/5 dark:group-hover:bg-white/5" data-astro-cid-5blmo7yk> 
+        <div class="flex items-center h-16 px-6" data-astro-cid-5blmo7yk>  
+        <div class="hidden md:flex items-center space-x-6" data-astro-cid-5blmo7yk>
+          <a href="#about" class="nav-link px-4 py-2 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors" data-section="about" data-astro-cid-5blmo7yk> About </a>
+          <a href="#research-projects" class="nav-link text-gray-900 dark:text-gray-100 hover:text-primary hover:dark:text-primary-light transition-colors font-medium" data-section="research-projects" data-astro-cid-5blmo7yk> Projects </a> 
+          <a href="#skills" class="nav-link text-gray-900 dark:text-gray-100 hover:text-primary hover:dark:text-primary-light transition-colors font-medium" data-section="skills" data-astro-cid-5blmo7yk> Skills </a>
+          <a href="#more-about-me" class="nav-link text-gray-900 dark:text-gray-100 hover:text-primary hover:dark:text-primary-light transition-colors font-medium" data-section="more-about-me" data-astro-cid-5blmo7yk> More About Me </a> 
+        </div> 
+        <button id="theme-toggle" class="md:ml-6 p-2 text-gray-900 dark:text-gray-100 hover:text-primary dark:hover:text-primary-light transition-colors" data-astro-cid-5blmo7yk> 
+          <svg id="theme-toggle-dark" class="hidden h-6 w-6" fill="currentColor" viewBox="0 0 20 20" data-astro-cid-5blmo7yk>
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" data-astro-cid-5blmo7yk></path>
+          </svg> 
+          <svg id="theme-toggle-light" class="hidden h-6 w-6" fill="currentColor" viewBox="0 0 20 20" data-astro-cid-5blmo7yk> 
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" data-astro-cid-5blmo7yk></path> 
+          </svg> 
+        </button>
+        <button class="md:hidden ml-4" id="mobile-menu-button" aria-label="Menu" data-astro-cid-5blmo7yk> 
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" data-astro-cid-5blmo7yk>
+             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" data-astro-cid-5blmo7yk></path>
+             </svg> 
+        </button> 
+      </div>  
+     </div>
+     </div>
+    </nav>   
+    
+    <main>
+       <!-- Add SEO metadata -->
+       <head>
+         <title>Yuk Kei Wan</title>
+         <meta name="description" content="Compuational Biology PhD Student working on deep learning and cloud computing methods for Nanopore direct RNA sequencing">
+         <meta name="keywords" content="Compuational Biology, Nanopore sequencing, Cancer Biology, Systems Biology, Biotechnology">
+       </head>
+       <section class="min-h-screen flex items-center py-1 md:py-1 relative overflow-hidden" id="intro">
+          <!-- <div class="container mx-auto px-4 md:px-6 max-w-3xl">  -->
+          <!-- Main Content --> 
+          <div class="row">
+            <div class="column">
+              <div class="container mt-2 px-left-column">
+                <img src="images/yukkei.jpg" alt="Yuk Kei Wan" width="450" height="500">
+                </div>
+            </div>
+            <div class="column">
+              <div class="mt-2 text-center md:text-left max-w-2xl right" id="about">
+                <h2 class="text-xl md:text-2xl font-semibold mb-2">A little about me</h2>
+                <p class="text-base md:text-lg leading-relaxed opacity-90">
+                  I'm Yuk Kei (pronounciation: Yuki) and am working on machine-learning and cloud-computing methods for nanopore sequencing analysis. I'm interested in biotech developments for healthcare and sustainability. </p>
+                <p class="text-base md:text-lg leading-relaxed opacity-90">
+                  Before my PhD, I worked five years on CRISPR-related projects: gene replacement in drosophila with the Homology-Directed Repair pathway and combinatorial CRISPR screens in ovarian cancer cell lines and gastric cancer organoids.
+                  Other than nanopore and CRISPR, I also spent one semester analyzing 2-photon microscopy images during my masters.</p>
+                <p class="text-base md:text-lg leading-relaxed opacity-90">
+                  Feel free to check out my projects and reach out if you have any questions!
+                </p>
+                <p class="text-base md:text-lg leading-relaxed opacity-90">
+                  Would love to chat!
+                </p>
+                <h2 class="text-lg font-bold mb-2 mt-4">Education</h2>
+                  <div class="relative space-y-6"> 
+                    <div class="flex gap-8">
+                    <div class="w-32 flex-shrink-0 text-sm text-gray-500 dark:text-gray-400"> 2021 - 2025 (expected) </div>
+                    <div class="flex-shrink-0"> 
+                      <h3 class="text-m font-semibold">PhD in Compuational Biology</h3> 
+                      <p class="text-primary font-medium"> National University of Singapore</p>
+                    </div>
+                    </div><div class="flex gap-8">
+                    <div class="w-32 flex-shrink-0 text-sm text-gray-500 dark:text-gray-400"> 2018 - 2019 </div>
+                    <div class="flex-shrink-0">
+                      <h3 class="text-m font-semibold">MS in Bioinformatics</h3>
+                      <p class="text-primary font-medium">Johns Hopkins University</p>
+                    </div>
+                    </div>
+                    <div class="flex gap-8">
+                    <div class="w-32 flex-shrink-0 text-sm text-gray-500 dark:text-gray-400"> 2014 - 2017 </div>
+                    <div class="flex-shrink-0">
+                      <h3 class="text-m font-semibold">BS in Microbiology and Molecular Genetics</h3>
+                      <p class="text-primary font-medium">Michigan State University</p>
+                    </div>
+                    </div>
+                
+                    <div class="flex space-x-4" id="cta">
+                      <a href="https://github.com/yuukiiwa" target="_blank" class="text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary-300 transition-colors"> 
+                      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"> 
+                      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.207 11.387.6.113.793-.263.793-.583 0-.287-.012-1.243-.018-2.25-3.338.725-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.73.083-.73 1.205.087 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.997.108-.775.42-1.305.763-1.605-2.665-.303-5.467-1.332-5.467-5.93 0-1.31.468-2.38 1.235-3.22-.123-.303-.535-1.523.117-3.176 0 0 1.008-.323 3.3 1.23.957-.266 1.983-.398 3.003-.403 1.02.005 2.046.137 3.003.403 2.29-1.553 3.297-1.23 3.297-1.23.653 1.653.24 2.873.118 3.176.77.84 1.235 1.91 1.235 3.22 0 4.61-2.807 5.625-5.48 5.92.432.373.816 1.102.816 2.222 0 1.606-.015 2.898-.015 3.293 0 .323.192.7.798.58C20.565 21.795 24 17.297 24 12c0-6.63-5.37-12-12-12z"></path> 
+                      </svg>
+                      </a> 
+                      <a href="https://scholar.google.com/citations?user=pAIRKYwAAAAJ&hl=en" target="_blank" class="text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary-300 transition-colors">
+                      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"> 
+                      <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"></path> 
+                      </svg> 
+                      </a> 
+                      <a href="https://www.linkedin.com/in/yuk-kei-wan-779401338/" target="_blank" class="text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary-300 transition-colors">
+                      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"> 
+                      <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.25c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.25h-3v-5.5c0-1.378-.028-3.152-1.92-3.152-1.92 0-2.215 1.5-2.215 3.052v5.6h-3v-10h2.88v1.367h.041c.401-.76 1.379-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.6v5.593z"></path> 
+                      </svg> 
+                      </a> 
+                    </div>  
+                  </div>
+              </div>
+            </div>
+        </section>  
+        <section class="py-1" id="research-projects">
+          <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold mb-12 dark:text-white">Selected Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-auto">
+            
+            <div class="project-card rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 dark:shadow-gray-900/30 h-full flex flex-col border border-gray-200 dark:border-gray-700 hover:border-primary/30 dark:hover:border-primary/30">
+              <div class="relative w-full overflow-hidden bg-gray-100 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-700"> 
+                <img src="images/arowana.png" alt="arowana" class="w-full h-auto object-cover transform transition-transform duration-300 hover:scale-110">
+              </div>
+              <div class="p-6 flex-grow flex flex-col">
+              <h3 class="text-xl font-bold mb-2 dark:text-white">arowana</h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">arowana is a transformer-based training framework for RNA basecalling and modification detection. Will come up with a logo soon.</p>
+              <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">role: primary developer</p>
+                <div class="flex gap-2 mt-auto">
+                  <a href="https://github.com/goekelab/arowana" target="_blank" class="px-3 py-1 bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300 rounded-full text-sm hover:bg-primary/20 transition-colors">GitHub</a>
+                  <a href="https://openreview.net/forum?id=isFwELED4Y" target="_blank" class="px-3 py-1 bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300 rounded-full text-sm hover:bg-primary/20 transition-colors">Paper</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 dark:shadow-gray-900/30 h-full flex flex-col border border-gray-200 dark:border-gray-700 hover:border-primary/30 dark:hover:border-primary/30">
+              <div class="relative w-full overflow-hidden bg-gray-100 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-700"> 
+                <img src="images/nanoseq.png" alt="nanoseq" class="w-full h-auto object-cover transform transition-transform duration-300 hover:scale-110">
+              </div>
+              <div class="p-6 flex-grow flex flex-col">
+              <h3 class="text-xl font-bold mb-2 dark:text-white">nf-core/nanoseq</h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">nfcore/nanoseq is a cloud-optimized nextflow pipeline for processing and analyzing Nanopore DNA/RNA sequencing data.</p>
+              <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">role: primary developer</p>
+                <div class="flex gap-2 mt-auto">
+                  <a href="https://github.com/nf-core/nanoseq" target="_blank" class="px-3 py-1 bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300 rounded-full text-sm hover:bg-primary/20 transition-colors">GitHub</a>
+                  <a href="https://www.nature.com/articles/s41592-025-02623-4" target="_blank" class="px-3 py-1 bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300 rounded-full text-sm hover:bg-primary/20 transition-colors">Paper</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 dark:shadow-gray-900/30 h-full flex flex-col border border-gray-200 dark:border-gray-700 hover:border-primary/30 dark:hover:border-primary/30">
+              <div class="relative w-full overflow-hidden bg-gray-100 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-700"> 
+                <img src="images/m6anet.png" alt="m6anet" class="w-full h-auto object-cover transform transition-transform duration-300 hover:scale-110">
+              </div>
+              <div class="p-6 flex-grow flex flex-col">
+              <h3 class="text-xl font-bold mb-2 dark:text-white">m6anet</h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">m6anet is a multiple instance-based model for detecting m6A in natural transcriptome.</p>
+              <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">role: contributor</p>
+                <div class="flex gap-2 mt-auto">
+                  <a href="https://github.com/goekelab/m6anet" target="_blank" class="px-3 py-1 bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300 rounded-full text-sm hover:bg-primary/20 transition-colors">GitHub</a>
+                  <a href="https://www.nature.com/articles/s41592-022-01666-1" target="_blank" class="px-3 py-1 bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300 rounded-full text-sm hover:bg-primary/20 transition-colors">Paper</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 dark:shadow-gray-900/30 h-full flex flex-col border border-gray-200 dark:border-gray-700 hover:border-primary/30 dark:hover:border-primary/30">
+              <div class="relative w-full overflow-hidden bg-gray-100 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-700"> 
+                <img src="images/xpore.png" alt="xpore" class="w-full h-auto object-cover transform transition-transform duration-300 hover:scale-110">
+              </div>
+              <div class="p-6 flex-grow flex flex-col">
+              <h3 class="text-xl font-bold mb-2 dark:text-white">xpore</h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">xpore is a Gaussian-Mixture-Model-based method for differential RNA modification detection.</p>
+              <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">role: contributor</p>
+                <div class="flex gap-2 mt-auto">
+                  <a href="https://github.com/goekelab/xpore" target="_blank" class="px-3 py-1 bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300 rounded-full text-sm hover:bg-primary/20 transition-colors">GitHub</a>
+                  <a href="https://www.nature.com/articles/s41587-021-00949-w" target="_blank" class="px-3 py-1 bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300 rounded-full text-sm hover:bg-primary/20 transition-colors">Paper</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 dark:shadow-gray-900/30 h-full flex flex-col border border-gray-200 dark:border-gray-700 hover:border-primary/30 dark:hover:border-primary/30">
+              <div class="relative w-full overflow-hidden bg-gray-100 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-700"> 
+                <img src="images/combipipe.png" alt="combipipe" class="w-full h-auto object-cover transform transition-transform duration-300 hover:scale-110">
+              </div>
+              <div class="p-6 flex-grow flex flex-col">
+              <h3 class="text-xl font-bold mb-2 dark:text-white">CombiPIPE</h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">CombiPIPE is a nextflow pipeline for analyzing combinatorial CRISPR with the CombiGEM-CRISPR platform.</p>
+              <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">role: primary developer</p>
+                <div class="flex gap-2 mt-auto">
+                  <a href="https://github.com/yuukiiwa/CombiPIPE" target="_blank" class="px-3 py-1 bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300 rounded-full text-sm hover:bg-primary/20 transition-colors">GitHub</a>
+                  <a href="https://www.cell.com/cell-reports/fulltext/S2211-1247(20)31005-6" target="_blank" class="px-3 py-1 bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300 rounded-full text-sm hover:bg-primary/20 transition-colors">Paper</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 dark:shadow-gray-900/30 h-full flex flex-col border border-gray-200 dark:border-gray-700 hover:border-primary/30 dark:hover:border-primary/30">
+              <div class="relative w-full overflow-hidden bg-gray-100 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-700"> 
+                <img src="images/fiji_renal.gif" alt="fiji_renal" class="w-full h-auto object-cover transform transition-transform duration-300 hover:scale-110">
+              </div>
+              <div class="p-6 flex-grow flex flex-col">
+              <h3 class="text-xl font-bold mb-2 dark:text-white">Detect clear cell carcinoma from 2-photon hyperstack images</h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">My first computational project! This script runs on FIJI on 2-photon images of kidney samples and output a scrore for clear cell carcinoma, which is 80% of all renal cancer.</p>
+              <p class="text-gray-600 dark:text-gray-300 mb-4 flex-grow">role: primary developer</p>
+                <div class="flex gap-2 mt-auto">
+                  <a href="https://github.com/yuukiiwa/clear_cell_carcinoma" target="_blank" class="px-3 py-1 bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300 rounded-full text-sm hover:bg-primary/20 transition-colors">GitHub</a>
+                </div>
+              </div>
+            </div>
+
+      </section>
+      <section class="py-20-half" id="skills">
+        <div class="container mx-auto px-4">
+          <h2 class="text-4xl font-bold mb-6 dark:text-white">Skills</h2>
+          <p class="text-base mb-6 md:text-lg leading-relaxed opacity-90">
+            Here are the different research skills I have aquired working in different labs since September 2014:
+          </p>
+          <div class="html mx-auto" id="chart_div"></div>
+        </div>
+      </section>
+      <section class="py-20-half" id="more-about-me">
+        <div class="container mx-auto px-4">
+          <h2 class="text-4xl font-bold mb-6 dark:text-white">More About Me</h2>
+        </div>
+      </section>
+      <section class="py-8" id="art">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl font-bold mb-6 dark:text-white">Paintings/Drawings</h2>
+          <p class="text-base mb-6 md:text-lg leading-relaxed opacity-90">
+            I paint/draw portraits of my family and friends and sloths for fun on Saturdays. More on <a href="https://www.instagram.com/potatot.art/" target="_blank">instagram @potatot.art</a>
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-auto">
+          
+          <div class="project-card rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 dark:shadow-gray-900/30 h-full flex flex-col border border-gray-200 dark:border-gray-700 hover:border-primary/30 dark:hover:border-primary/30">
+            <div class="relative w-full overflow-hidden bg-gray-100 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-700"> 
+              <img src="images/art1.jpg" alt="art1" class="w-full h-auto object-cover transform transition-transform duration-300 hover:scale-110">
+            </div>
+          </div>
+
+          <div class="project-card rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 dark:shadow-gray-900/30 h-full flex flex-col border border-gray-200 dark:border-gray-700 hover:border-primary/30 dark:hover:border-primary/30">
+            <div class="relative w-full overflow-hidden bg-gray-100 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-700"> 
+              <img src="images/art2.jpg" alt="art2" class="w-full h-auto object-cover transform transition-transform duration-300 hover:scale-110">
+            </div>
+          </div>
+
+          <div class="project-card rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 dark:shadow-gray-900/30 h-full flex flex-col border border-gray-200 dark:border-gray-700 hover:border-primary/30 dark:hover:border-primary/30">
+            <div class="relative w-full overflow-hidden bg-gray-100 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-700"> 
+              <img src="images/art3.jpg" alt="art3" class="w-full h-auto object-cover transform transition-transform duration-300 hover:scale-110">
+            </div>
+          </div>
+
+          <div class="project-card rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 dark:shadow-gray-900/30 h-full flex flex-col border border-gray-200 dark:border-gray-700 hover:border-primary/30 dark:hover:border-primary/30">
+            <div class="relative w-full overflow-hidden bg-gray-100 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-700"> 
+              <img src="images/art4.jpg" alt="art4" class="w-full h-auto object-cover transform transition-transform duration-300 hover:scale-110">
+            </div>
+          </div>
+
+          <div class="project-card rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 dark:shadow-gray-900/30 h-full flex flex-col border border-gray-200 dark:border-gray-700 hover:border-primary/30 dark:hover:border-primary/30">
+            <div class="relative w-full overflow-hidden bg-gray-100 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-700"> 
+              <img src="images/art5.jpg" alt="art5" class="w-full h-auto object-cover transform transition-transform duration-300 hover:scale-110">
+            </div>
+          </div>
+
+          <div class="project-card rounded-lg overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 dark:shadow-gray-900/30 h-full flex flex-col border border-gray-200 dark:border-gray-700 hover:border-primary/30 dark:hover:border-primary/30">
+            <div class="relative w-full overflow-hidden bg-gray-100 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-700"> 
+              <img src="images/art6.jpg" alt="art6" class="w-full h-auto object-cover transform transition-transform duration-300 hover:scale-110">
+            </div>
+          </div>
+      </section>
+      <section class="py-8" id="reading-the-world">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl font-bold mb-6 dark:text-white">Reading the World</h2>
+          <p class="text-base mb-6 md:text-lg leading-relaxed opacity-90">
+            I read novels from different countries, except those that I'm familar with (China, Japan, the U.S., the U.K.). Here is a map of the books I've read so far:
+          </p>
+          <div id="regions_div"></div>
+        </div>
+      </section>
+      </main> 
+      <footer class="bg-background border-t border-gray-200 dark:border-gray-700 py-8">
+         <div class="container mx-auto px-4"> 
+            <div class="flex flex-col md:flex-row justify-between items-center"> 
+                <div class="mb-4 md:mb-0"> 
+                <h2 class="text-2xl font-bold dark:text-white">Yuk Kei Wan</h2> 
+                <a href="https://yuukiiwa.github.io/mifurryamigos.html" target="_blank">Click here to meet my furry friends</a>
+            </div> 
+        </div>
+      </footer>
